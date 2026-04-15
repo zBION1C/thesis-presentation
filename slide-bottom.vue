@@ -9,9 +9,7 @@
       <span>
         Nicholas Montana - Department of Computer, Control and Management Engineering Antonio Ruberti
       </span>
-      <span>
-        <img src="./static/logo.png" width="80" height="80">
-      </span>
+      <img src="./static/logo.png" width=80 height=80>
     </div>
   </footer>
 </template>

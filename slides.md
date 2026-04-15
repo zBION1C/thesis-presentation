@@ -3,10 +3,10 @@ theme: academic
 layout: cover 
 hideInToc: true
 colorSchema: light
-transition: slide-left
+transition: slide-left 
 coverDate: false
 fonts:
-    local: "Palatino"
+    sans: "Firacode"
     fallbacks: false
 ---
 
@@ -29,18 +29,63 @@ PhD. Cristian Assaiante
 </div>
 
 ---
-layout: table-of-contents 
 hideInToc: true
+---
+# Table of Contents
+<Toc :columns="2"/>
 
 ---
-
+layout: figure-side
+figureUrl: "./static/compiler_structure.svg"
 ---
 
-# Compilers
+# What is a compiler? 
+- Translates source code -> target code
+- Preserves program semantic
+- **Optimizes** code during translation
+
+Compiler Structure (3 Stages)
+
+- Front-end → Parses source code → builds IR
+- Middle-end → Optimizes IR
+- Back-end → Generates target code
+
+Intermediate Representation (IR)
+
+- Multiple IR types exist
+- Choice depends on compiler design goals
+
+
+---
+layout: figure-side
+figureUrl: "./static/llvm.svg"
+figureCaption: "LLVM Architecture"
+---
+## LLVM Compiler Infrastructure
+
+The LLVM Project 
+- A collection of modular and reusable compiler and toolchain technologies,
+- Designed around a modern SSA-based compilation strategy that supports both static and dynamic compilation of arbitrary programming languages.
+
+Key Components
+
+- LLVM Core -> Source- and target-independent optimizer
+- Clang -> Native C/C++ compiler for LLVM
+- LLD ->  High-performance linker
+
+...and many more!
 
 ---
 
 # Profile Guided Optimization
+
+---
+
+## Workflow 
+
+---
+
+## Instrumentation
 
 ---
 
@@ -77,4 +122,8 @@ figureCaption: "Optimization phase architecture"
 ---
 
 ## Search phase
+
+---
+
+# Experimental Evaluation 
 
