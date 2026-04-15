@@ -31,7 +31,50 @@ PhD. Cristian Assaiante
 ---
 layout: table-of-contents 
 hideInToc: true
+
 ---
 
-# Table Of Contents
+---
+
+# Compilers
+
+---
+
+# Profile Guided Optimization
+
+---
+
+# Problem Formalization
+
+---
+layout: two-cols-header
+---
+# Proposed Methodology
+
+::left::
+
+<v-click>
+
+### Optimization phase
+
+</v-click>
+
+::right::
+<v-click>
+
+### Search phase
+
+</v-click>
+
+---
+layout: figure-side 
+figureUrl: "./static/test.png"
+figureCaption: "Optimization phase architecture"
+---
+
+## Optimization phase 
+
+---
+
+## Search phase
 
