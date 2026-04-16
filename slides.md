@@ -39,53 +39,72 @@ layout: figure-side
 figureUrl: "./static/compiler_structure.svg"
 ---
 
-# What is a compiler? 
-- Translates source code -> target code
-- Preserves program semantic
-- **Optimizes** code during translation
+# Compilers 
+- What is a compiler?
 
-Compiler Structure (3 Stages)
+    - Translates source code -> target code
+    - Preserves program semantic
+    - *Optimizes* code during translation
 
-- Front-end → Parses source code → builds IR
-- Middle-end → Optimizes IR
-- Back-end → Generates target code
+- Compiler Structure (3 Stages)
 
-Intermediate Representation (IR)
+    - Front-end → Parses source code → builds IR
+    - Middle-end → Optimizes IR
+    - Back-end → Generates target code
 
-- Multiple IR types exist
-- Choice depends on compiler design goals
+- Intermediate Representation (IR)
 
+    - Multiple IR types exist
+    - Choice depends on compiler design goals
 
 ---
 layout: figure-side
 figureUrl: "./static/llvm.svg"
 figureCaption: "LLVM Architecture"
 ---
-## LLVM Compiler Infrastructure
+## What is a compiler? - LLVM 
 
-The LLVM Project 
-- A collection of modular and reusable compiler and toolchain technologies,
-- Designed around a modern SSA-based compilation strategy that supports both static and dynamic compilation of arbitrary programming languages.
+- The LLVM Project 
+    - A collection of modular and reusable compiler and toolchain technologies,
+    - Designed around a modern SSA-based compilation strategy that supports both static and dynamic compilation of arbitrary programming languages.
 
-Key Components
+- Key Components
 
-- LLVM Core -> Source- and target-independent optimizer
-- Clang -> Native C/C++ compiler for LLVM
-- LLD ->  High-performance linker
+    - LLVM Core -> Source- and target-independent optimizer
+    - Clang -> Native C/C++ compiler for LLVM
+    - LLD ->  High-performance linker
 
 ...and many more!
 
 ---
 
 # Profile Guided Optimization
+- A smart optimization technique
+
+    - Leverages *control flow information* captured at runtime to steer optimizations
+    - Notable performance improvement 
+
+- Control flow information (or *profile*) a.k.a. 
+
+    - Weights on control flow edges
+    - Counts on basic blocks
+
+- Profiles can be captured via:
+
+    - Instrumentation
+    - Sampling
+    - Tracing
 
 ---
 
-## Workflow 
+## Profile Guided Optimization - Workflow 
+
+
 
 ---
 
 ## Instrumentation
+
 
 ---
 
