@@ -29,10 +29,10 @@ PhD. Cristian Assaiante
 </div>
 
 ---
+layout: table-of-contents
 hideInToc: true
 ---
 # Table of Contents
-<Toc :columns="2"/>
 
 ---
 layout: figure-side
@@ -40,6 +40,9 @@ figureUrl: "./static/compiler_structure.svg"
 ---
 
 # Compilers 
+
+<v-clicks every="1">
+
 - What is a compiler?
 
     - Translates source code -> target code
@@ -48,37 +51,27 @@ figureUrl: "./static/compiler_structure.svg"
 
 - Compiler Structure (3 Stages)
 
-    - Front-end → Parses source code → builds IR
-    - Middle-end → Optimizes IR
-    - Back-end → Generates target code
+    - Front-end -> Parses source code -> builds IR
+    - Middle-end -> Optimizes IR
+    - Back-end -> Generates target code
 
 - Intermediate Representation (IR)
 
     - Multiple IR types exist
     - Choice depends on compiler design goals
 
+</v-clicks>
+
 ---
-layout: figure-side
-figureUrl: "./static/llvm.svg"
-figureCaption: "LLVM Architecture"
----
-## What is a compiler? - LLVM 
 
-- The LLVM Project 
-    - A collection of modular and reusable compiler and toolchain technologies,
-    - Designed around a modern SSA-based compilation strategy that supports both static and dynamic compilation of arbitrary programming languages.
-
-- Key Components
-
-    - LLVM Core -> Source- and target-independent optimizer
-    - Clang -> Native C/C++ compiler for LLVM
-    - LLD ->  High-performance linker
-
-...and many more!
+# Optimizations
 
 ---
 
 # Profile Guided Optimization
+
+<v-clicks every="1">
+
 - A smart optimization technique
 
     - Leverages *control flow information* captured at runtime to steer optimizations
@@ -91,41 +84,51 @@ figureCaption: "LLVM Architecture"
 
 - Profiles can be captured via:
 
-    - Instrumentation
-    - Sampling
-    - Tracing
+    - Instrumentation -> Additional logic inside the program
+    - Sampling -> CPU counters + Perf
+    - Tracing -> Profile aggregated from the program trace 
+
+</v-clicks>
+
+---
+layout: figure-side
+figureUrl: "./static/llvm.svg"
+figureCaption: "LLVM Architecture"
+---
+# The LLVM Project
+
+<v-clicks depth="1">
+
+- The LLVM Project 
+
+    - A collection of modular and reusable compiler and toolchain technologies,
+    - Designed around a modern SSA-based compilation strategy that supports both static and dynamic compilation of arbitrary programming languages.
+
+- Key Components
+
+    - LLVM Core -> Source- and target-independent <span v-mark="{at:3,color:'red',type:'underline'}">optimizer</span>
+    - Clang -> Native C/C++ compiler for LLVM
+    - LLD ->  High-performance linker
+
+</v-clicks>
 
 ---
 
-## Profile Guided Optimization - Workflow 
-
-
+# Profile Guided Optimization in LLVM 
 
 ---
 
-## Instrumentation
+## Profile Metadata
 
+---
+
+## Profile Analysis
 
 ---
 
-# Problem Formalization
+# Problem Formulation
 
 ---
-layout: two-cols-header
----
+
 # Proposed Methodology
-
----
-layout: figure-side 
----
-
-## Optimization phase 
-
----
-
-## Search phase
-
----
-
-# Experimental Evaluation 
 
