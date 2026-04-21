@@ -154,20 +154,46 @@ figureCaption: "LLVM architecture"
 
 ## Profile Analysis
 
-- Profile information used to compute aggregated control flow information
+- Profile metadata used to compute additional control flow data
 
-<div class="flex items-center" style="gap:10px;height:100%;padding-bottom:60px">
-    <v-clicks>
-    <div class="flex" style="justify-content:center;border:2px solid black;border-radius:5px;width:300px; height:90%">
-    BranchProbabilityInfo
-    </div>
-    <div class="flex" style="justify-content:center;border: 2px solid black; width:300px;border-radius:5px; height:90%">
-    BlockFrequencyInfo
-    </div>
-    <div class="flex" style="justify-content:center;border: 2px solid black; width:300px;border-radius:5px; height:90%">
-    ProfileSummaryInfo
-    </div>
-    </v-clicks>
+    - `BranchProbabilityInfo` -> Raw branch weights converted into branch probabilities
+    - `BlockFrequencyInfo` -> Blocks are assigned an execution frequency relative to the entry block 
+    - `ProfileSummaryInfo` -> Hotness or coldness of blocks 
+
+<div class="flex" style="height:63%;align-items:center;justify-content:center;gap:10px;">
+<div style="flex:1;" v-click v-motion :initial="{x:-50}" :enter="{x:0}">
+```llvm 
+entry:
+  %cmp = icmp sgt i32 %x, 0
+  br i1 %cmp, label %then, label %else, !prof !0
+
+then:
+  ret i32 1
+
+else:
+  ret i32 0
+
+!0 = !{!"branch_weights", i32 80, i32 20}
+!1 = !{!"function_entry_count", i64 1000}
+```
+</div>
+
+<div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+<div style="flex:1;" v-click v-motion :initial="{x:50}" :enter="{x:0}">
+BranchProbInfo
+```llvm 
+edge %entry -> %then probability is 0x66666666 / 0x80000000 = 80.00%
+edge %entry -> %else probability is 0x1999999a / 0x80000000 = 20.00%
+```
+</div>
+<div style="flex:1;" v-click v-motion :initial="{x:50}" :enter="{x:0}">
+BlockFrequencyInfo
+```llvm
+then: float = 0.8, int = 14411518804230144, count = 800
+else: float = 0.2, int = 3602879705251840, count = 200
+```
+</div>
+</div>
 </div>
 
 ---
