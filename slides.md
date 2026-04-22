@@ -7,8 +7,8 @@ transition: slide-left
 coverDate: false
 highlighter: shiki
 fonts:
-    sans: "Firacode"
-    fallbacks: false
+    sans: "Noto"
+    mono: "Firacode"
 ---
 
 ## Profile Information Propagation Analysis
@@ -135,7 +135,7 @@ figureCaption: "LLVM architecture"
 - Profile information encoded as instruction metadata
     - `branch_weights` -> Counts associated to instructions that change the control flow 
     ```llvm {all|4,5}
-    bb41:                                             ; preds = %bb37
+    bb41:
       store i32 0, ptr %i40, align 4
       %i42 = load <4 x i32>, ptr @h, align 16
       br i1 %i39, label %.split.us.preheader, label %.split.preheader, !prof !30
@@ -160,7 +160,7 @@ figureCaption: "LLVM architecture"
     - `BlockFrequencyInfo` -> Blocks are assigned an execution frequency relative to the entry block 
     - `ProfileSummaryInfo` -> Hotness or coldness of blocks 
 
-<div class="flex" style="height:63%;align-items:center;justify-content:center;gap:10px;">
+<div class="flex" style="height:55%;align-items:center;justify-content:center;gap:10px;">
 <div style="flex:1;" v-click v-motion :initial="{x:-50}" :enter="{x:0}">
 ```llvm 
 entry:
@@ -198,9 +198,108 @@ else: float = 0.2, int = 3602879705251840, count = 200
 
 ---
 
-# Problem Formulation
+# Profile and Block Frequency Formalization
+<div class="flex flex-col" style="justify-content:center;height:90%">
+<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<DefinitionBox title="Definition 1: Profiled Program">
+
+Given a program $A$ represented as a control-flow graph $G=(E,V)$, a *profile* of $A$ is a function $p: E \to \mathcal{N}$
+that assigns to each edge $(v,w) \in G$ the number of times control flows from basic block $v$ to basic block $w$.
+We denote the program $A$ with profile $p$ as the pair $(A,p)$.
+
+</DefinitionBox>
+</div>
+
+<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<DefinitionBox title="Definition 2: Block Frequency">
+
+Give a profiled program $(G=(V,E), p)$ the *block frequency function* is a function $f_p: V \to \mathcal{N}$ that assigns to each basic block
+$v \in V$ the number of times $v$ is reached during program execution, as derived from profile $p$.
+
+</DefinitionBox>
+</div>
+</div>
 
 ---
 
-# Proposed Methodology
+# Problem Formalization
+
+<div class="flex flex-col" style="justify-content:center;height:90%">
+<DefinitionBox title="Definition 3: Profile propagation analysis problem">
+
+Let $O$ be a profile-guided optimization pipeline. Let $(G, p)$ be a profiled program. Let $(G', p') = O(G, p)$ be the profiled program resulting by applying $O$ to $(G, p)$.
+The *profile propagation analysis problem* consist of performing the following tasks:
+- Determine if $O$ made some profile propagation errors.
+- If profile propagation errors were made by $O$, spot the faulty passes for this errors.
+
+</DefinitionBox>
+</div>
+
+---
+
+# Spotting profile propagation errors 
+
+<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<DefinitionBox title="Definition 4: Profile Equivalence Relation">
+
+Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
+$p$ is said to be equivalent to $q$ if $\forall v \in V, f_p(v) = f_q(v)$ 
+
+</DefinitionBox>
+</div>
+
+<v-clicks :depth=2>
+
+- Now consider:
+    - $p$ -> profile computed by the pipeline on the optimized program
+    - $q$ -> profile computed instrumenting and re-executing the optimized program 
+    - if $p \neq q$ then pipeline made some profile propagation errors 
+
+</v-clicks>
+
+---
+
+# Identifying Culprit Passes 
+
+
+<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<DefinitionBox title="Definition 5: Profile Mismatch">
+
+Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
+Let $p\neq q$.<br> A *profile mismatch* is a tuple $(G, f, bb, f_p(bb), f_q(bb))$ such that
+- $f$ is a function within $G$
+- $bb$ is a basic block within $f$ 
+- $f_p(bb) \neq f_q(bb)$
+
+</DefinitionBox>
+</div>
+<v-clicks>
+
+- A single pipeline application can results in multiple profile mismatches 
+- We need a way to attribute to a mismatch the pass that caused it...
+
+</v-clicks>
+
+---
+hideInToc: true
+---
+
+# Identifying Culprit Passes
+
+<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<DefinitionBox title="Definition 6: Mismatch Equivalence Relation">
+
+Let $G$ and $G'$ be programs, where $G'$ is obtained by manipulating $G$ in some way.
+Let $m_1 = (G, f, bb, f_p(bb), f_q(bb))$ and $m_2 = (G', f', bb', f_p(bb'), f_q(bb'))$ be two mismatches for their respective programs.
+Then $m_1 = m_2$ if
+- $f$ and $f'$ names are equal
+- $f_p(bb) = f_p(bb')$ 
+- $f_q(bb) = f_q(bb')$
+
+</DefinitionBox>
+</div>
+
+<div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
+<img src="./static/method.svg">
+</div>
 
