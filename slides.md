@@ -198,6 +198,23 @@ else: float = 0.2, int = 3602879705251840, count = 200
 
 ---
 
+# Profile Information Propagation 
+
+- The starting profile is propagated throughout the entire pipeline
+    - Each LLVM optimization is responsible for the update of the profile information
+    - Additional logic to handle profile metadata in passes source code
+
+<div class="p-20px" align=center>
+    <img src="./static/propagation.svg">
+</div>
+
+- Bugs in such a logic reduce the efficacy of PGO
+    - Subsequent pass will work on wrong profile information
+    - A cascading effect will trigger
+    - Bad optimization decisions can be taken!
+
+---
+
 # Profile and Block Frequency Formalization
 <div class="flex flex-col" style="justify-content:center;height:90%">
 <div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
