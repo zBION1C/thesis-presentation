@@ -215,7 +215,23 @@ else: float = 0.2, int = 3602879705251840, count = 200
 
 ---
 
-# Profile and Block Frequency Formalization
+# Problem Formalization
+
+<div class="flex flex-col" style="justify-content:center;height:90%">
+<DefinitionBox title="Definition 3: Profile propagation analysis problem">
+
+Let $O$ be a profile-guided optimization pipeline. Let $(G, p)$ be a profiled program. Let $(G', p') = O(G, p)$ be the profiled program resulting by applying $O$ to $(G, p)$.
+The *profile propagation analysis problem* consist of performing the following tasks:
+- Determine if $O$ made some profile propagation errors.
+- If profile propagation errors were made by $O$, spot the faulty passes for this errors.
+
+</DefinitionBox>
+</div>
+
+---
+
+## Profile and Block Frequency Formalization
+
 <div class="flex flex-col" style="justify-content:center;height:90%">
 <div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 1: Profiled Program">
@@ -239,22 +255,7 @@ $v \in V$ the number of times $v$ is reached during program execution, as derive
 
 ---
 
-# Problem Formalization
-
-<div class="flex flex-col" style="justify-content:center;height:90%">
-<DefinitionBox title="Definition 3: Profile propagation analysis problem">
-
-Let $O$ be a profile-guided optimization pipeline. Let $(G, p)$ be a profiled program. Let $(G', p') = O(G, p)$ be the profiled program resulting by applying $O$ to $(G, p)$.
-The *profile propagation analysis problem* consist of performing the following tasks:
-- Determine if $O$ made some profile propagation errors.
-- If profile propagation errors were made by $O$, spot the faulty passes for this errors.
-
-</DefinitionBox>
-</div>
-
----
-
-# Spotting profile propagation errors 
+## Spotting profile propagation errors 
 
 <div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 4: Profile Equivalence Relation">
@@ -276,7 +277,7 @@ $p$ is said to be equivalent to $q$ if $\forall v \in V, f_p(v) = f_q(v)$
 
 ---
 
-# Identifying Culprit Passes 
+## Identifying Culprit Passes 
 
 
 <div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
@@ -301,7 +302,7 @@ Let $p\neq q$.<br> A *profile mismatch* is a tuple $(G, f, bb, f_p(bb), f_q(bb))
 hideInToc: true
 ---
 
-# Identifying Culprit Passes
+## Identifying Culprit Passes
 
 <div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 6: Mismatch Equivalence Relation">
@@ -319,4 +320,36 @@ Then $m_1 = m_2$ if
 <div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
 <img src="./static/method.svg">
 </div>
+
+---
+
+# Full Methodology 
+
+<div align=center>
+<SlidevVideo autoplay controls width="80%">
+    <source src="./animations/media/videos/main/1080p60/Animation.mp4" type="video/mp4" />
+</SlidevVideo>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
