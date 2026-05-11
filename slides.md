@@ -7,8 +7,8 @@ transition: slide-left
 coverDate: false
 highlighter: shiki
 fonts:
-    sans: "Noto"
-    mono: "Firacode"
+    sans: "Noto Sans"
+    mono: "Fira Code"
 ---
 
 ## Profile Information Propagation Analysis
@@ -21,7 +21,7 @@ Prof. Daniele Cono D'Elia
 </span>
 <span>
 Co-supervisor<br>
-PhD. Cristian Assaiante
+Dr. Cristian Assaiante
 </span>
 </div>
 
