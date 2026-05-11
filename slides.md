@@ -11,7 +11,7 @@ fonts:
     mono: "Fira Code"
 ---
 
-## Profile Information Propagation Analysis
+## Spotting Accuracy Issues in Profile-Guided Optimization 
 A new methodology to spot metadata propagation errors within optimization pipelines
 
 <div class="flex items-center" style="gap:50px">
@@ -152,7 +152,7 @@ figureCaption: "LLVM architecture"
 
 ---
 
-## Profile Analysis
+## Control Flow Analysis
 
 - Profile metadata used to compute additional control flow data
 
@@ -161,7 +161,8 @@ figureCaption: "LLVM architecture"
     - `ProfileSummaryInfo` -> Hotness or coldness of blocks 
 
 <div class="flex" style="height:55%;align-items:center;justify-content:center;gap:10px;">
-<div style="flex:1;" v-click v-motion :initial="{x:-50}" :enter="{x:0}">
+<div style="flex:1;"> 
+
 ```llvm 
 entry:
   %cmp = icmp sgt i32 %x, 0
@@ -176,22 +177,27 @@ else:
 !0 = !{!"branch_weights", i32 80, i32 20}
 !1 = !{!"function_entry_count", i64 1000}
 ```
-</div>
 
+</div>
 <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
-<div style="flex:1;" v-click v-motion :initial="{x:50}" :enter="{x:0}">
+<div style="flex:1;"> 
+
 BranchProbInfo
 ```llvm 
 edge %entry -> %then probability is 0x66666666 / 0x80000000 = 80.00%
 edge %entry -> %else probability is 0x1999999a / 0x80000000 = 20.00%
 ```
+
 </div>
-<div style="flex:1;" v-click v-motion :initial="{x:50}" :enter="{x:0}">
+<div style="flex:1;">
+
 BlockFrequencyInfo
 ```llvm
 then: float = 0.8, int = 14411518804230144, count = 800
 else: float = 0.2, int = 3602879705251840, count = 200
 ```
+
+</div>
 </div>
 </div>
 
@@ -231,8 +237,7 @@ The *profile propagation analysis problem* consist of performing the following t
 
 ## Profile and Block Frequency Formalization
 
-<div class="flex flex-col" style="justify-content:center;height:90%">
-<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
+<div class="flex flex-col" style="justify-content:center;height:90%;gap:10px">
 <DefinitionBox title="Definition 1: Profiled Program">
 
 Given a program $A$ represented as a control-flow graph $G=(E,V)$, a *profile* of $A$ is a function $p: E \to \mathcal{N}$
@@ -240,9 +245,7 @@ that assigns to each edge $(v,w) \in G$ the number of times control flows from b
 We denote the program $A$ with profile $p$ as the pair $(A,p)$.
 
 </DefinitionBox>
-</div>
 
-<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 2: Block Frequency">
 
 Give a profiled program $(G=(V,E), p)$ the *block frequency function* is a function $f_p: V \to \mathcal{N}$ that assigns to each basic block
@@ -250,20 +253,17 @@ $v \in V$ the number of times $v$ is reached during program execution, as derive
 
 </DefinitionBox>
 </div>
-</div>
 
 ---
 
 ## Spotting profile propagation errors 
 
-<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 4: Profile Equivalence Relation">
 
 Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
 $p$ is said to be equivalent to $q$ if $\forall v \in V, f_p(v) = f_q(v)$ 
 
 </DefinitionBox>
-</div>
 
 <v-clicks :depth=2>
 
@@ -279,7 +279,6 @@ $p$ is said to be equivalent to $q$ if $\forall v \in V, f_p(v) = f_q(v)$
 ## Identifying Culprit Passes 
 
 
-<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 5: Profile Mismatch">
 
 Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
@@ -289,7 +288,7 @@ Let $p\neq q$.<br> A *profile mismatch* is a tuple $(G, f, bb, f_p(bb), f_q(bb))
 - $f_p(bb) \neq f_q(bb)$
 
 </DefinitionBox>
-</div>
+
 <v-clicks>
 
 - A single pipeline application can results in multiple profile mismatches 
@@ -303,7 +302,6 @@ hideInToc: true
 
 ## Identifying Culprit Passes
 
-<div v-click v-motion :initial="{ x: -50 }" :enter="{ x: 0 }" >
 <DefinitionBox title="Definition 6: Mismatch Equivalence Relation">
 
 Let $G$ and $G'$ be programs, where $G'$ is obtained by manipulating $G$ in some way.
@@ -314,7 +312,6 @@ Then $m_1 = m_2$ if
 - $f_q(bb) = f_q(bb')$
 
 </DefinitionBox>
-</div>
 
 <div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
 <img src="./static/method.svg">
@@ -324,13 +321,7 @@ Then $m_1 = m_2$ if
 
 # Full Methodology 
 
-<div align=center>
-<SlidevVideo autoplay controls width="80%">
-    <source src="./animations/media/videos/main/1080p60/Animation.mp4" type="video/mp4" />
-</SlidevVideo>
-</div>
-
-
+<img src="./animations/media/videos/main/1080p60/Animation.gif" />
 
 
 
