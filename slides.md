@@ -125,57 +125,6 @@ backgroundSize: 80%
 
 ---
 
-## Control Flow Analysis
-
-- Profile metadata used to compute additional control flow data
-
-    - `BranchProbabilityInfo` -> Raw branch weights converted into branch probabilities
-    - `BlockFrequencyInfo` -> Blocks are assigned an execution frequency relative to the entry block 
-    - `ProfileSummaryInfo` -> Hotness or coldness of blocks 
-
-<div class="flex" style="height:55%;align-items:center;justify-content:center;gap:10px;">
-<div style="flex:1;"> 
-
-```llvm 
-entry:
-  %cmp = icmp sgt i32 %x, 0
-  br i1 %cmp, label %then, label %else, !prof !0
-
-then:
-  ret i32 1
-
-else:
-  ret i32 0
-
-!0 = !{!"branch_weights", i32 80, i32 20}
-!1 = !{!"function_entry_count", i64 1000}
-```
-
-</div>
-<div style="flex:1; display:flex; flex-direction:column; gap:10px;">
-<div style="flex:1;"> 
-
-BranchProbInfo
-```llvm 
-edge %entry -> %then probability is 0x66666666 / 0x80000000 = 80.00%
-edge %entry -> %else probability is 0x1999999a / 0x80000000 = 20.00%
-```
-
-</div>
-<div style="flex:1;">
-
-BlockFrequencyInfo
-```llvm
-then: float = 0.8, int = 14411518804230144, count = 800
-else: float = 0.2, int = 3602879705251840, count = 200
-```
-
-</div>
-</div>
-</div>
-
----
-
 # Profile Information Propagation 
 
 - The starting profile is propagated throughout the entire pipeline
@@ -194,42 +143,37 @@ else: float = 0.2, int = 3602879705251840, count = 200
 ---
 
 # Toy Example 
-<div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;" >
+<div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;">
 
-<v-clicks>
-
-```llvm{all|2,3|5,6|8,9|11}
+```llvm{all|3,4|6,7|9,10|12}
 % Before dummy pass
 entry:
   %cmp = icmp sgt i32 %x, 0
   br i1 %cmp, label %then, label %else, !prof !0
 
-then:
+then: 🔥
     call i32 @handle_positive_x(i32 %x)
 
-else:
+else: ❄️
     call i32 @handle_negative_x(i32 %x)
 
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
-```llvm{all|2,3|5,6|8,9|11}
+```llvm{none|3,4|6,7|9,10|12}
 % After dummy pass
 entry:
   %cmp = icmp sle i32 %x, 0
   br i1 %cmp, label %then, label %else, !prof !0
 
-then:
+then: 🔥
     call i32 @handle_negative_x(i32 %x)
 
-else:
+else: ❄️
     call i32 @handle_positive_x(i32 %x)
 
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
-
-
-</v-clicks>
 
 </div>
  
