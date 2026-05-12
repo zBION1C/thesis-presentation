@@ -161,6 +161,8 @@ else: ❄️
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
+<v-clicks>
+
 ```mermaid {theme: 'neutral', scale: 0.8}
 graph TD
 entry[Entry] -->|80%| then[Then]
@@ -170,9 +172,11 @@ style else fill:#4f46e5,color:#fff
 style then fill:#ef4444,color:#fff
 ```
 
+</v-clicks>
+
 </div>
 
-<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;">
+<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;" >
 
 ```llvm{all|3,4|6,7|9,10|12}
 % After dummy pass
@@ -189,6 +193,8 @@ else: 🔥
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
+<v-clicks>
+
 ```mermaid {theme: 'neutral', scale: 0.8}
 graph TD
 entry[Entry] -->|80%| else[Else]
@@ -197,6 +203,8 @@ entry -->|20%| then[Then]
 style then fill:#4f46e5,color:#fff
 style else fill:#ef4444,color:#fff
 ```
+
+</v-clicks>
 
 </div>
 </div>
