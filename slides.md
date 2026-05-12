@@ -25,7 +25,7 @@ Dr. Cristian Assaiante
 </div>
 
 <div class="absolute bottom-0 right-0">
-    <img src="./static/logo.png" width="300" height="300">
+    <img src="/images/logo.png" width="300" height="300">
 </div>
 
 ---
@@ -36,7 +36,7 @@ hideInToc: true
 
 ---
 layout: figure-side
-figureUrl: "/static/compiler_structure.svg"
+figureUrl: "/images/compiler_structure.svg"
 ---
 
 # Compilers 
@@ -71,7 +71,7 @@ figureUrl: "/static/compiler_structure.svg"
 <br>
 <br>
 <div align="flex flex-col items-center"> 
-    <img src="./static/pipeline.svg" class="mx-auto">
+    <img src="./images/pipeline.svg" class="mx-auto">
 </div>
 
 ---
@@ -95,13 +95,13 @@ figureUrl: "/static/compiler_structure.svg"
 
 ---
 layout: image
-image: "/static/pgo.svg"
+image: "/images/pgo.svg"
 backgroundSize: 80%
 ---
 ## <span class="text-black">PGO Workflow</span>
 ---
 layout: figure-side
-figureUrl: "/static/llvm.svg"
+figureUrl: "/images/llvm.svg"
 figureCaption: "LLVM architecture"
 ---
 
@@ -208,7 +208,7 @@ else: float = 0.2, int = 3602879705251840, count = 200
     - Additional logic to handle profile metadata in passes source code
 
 <div class="p-20px" align=center>
-    <img src="./static/propagation.svg">
+    <img src="/images/propagation.svg">
 </div>
 
 - Bugs in such a logic reduce the efficacy of PGO
@@ -312,12 +312,12 @@ Then $m_1 = m_2$ if
 </DefinitionBox>
 
 <div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
-<img src="./static/method.svg">
+<img src="/images/method.svg">
 </div>
 
 ---
 layout: image
-image: "/static/opt_phase.svg"
+image: "/images/opt_phase.svg"
 backgroundSize: 60%
 ---
 
@@ -325,7 +325,7 @@ backgroundSize: 60%
 
 ---
 layout: image
-image: "/static/search.svg"
+image: "/images/search.svg"
 backgroundSize: 60%
 ---
 
@@ -342,5 +342,5 @@ backgroundSize: 60%
 - Eleven total issues were found and reported to the LLVM community
 
 <div align=center>
-<img src="./static/table.png" width=40% />
+<img src="/images/table.png" width=40% />
 </div>
