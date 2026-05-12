@@ -183,15 +183,20 @@ else: ❄️
 
 <v-clicks>
 
-- Compilers are a critical component of software development
-    - They perform software quality assurance checks
-    - They are used to enforce security properties
-- Sub-optimal binaries can alter the timings
-    - Latency-sensitive applications could break
-    - Greater side-channel attacks opportunities! 
+- Compilers are part of the **Trusted Computing Base (TCB)**
+    - Their correctness impacts both correctness *and security* of software
+- Profile-Guided Optimization influences critical low-level decisions
+    - Code layout (hot vs cold blocks)
+    - Branch prediction hints
+    - Inlining and execution hot paths
+- Security-relevant consequences
+    - Timing side-channel amplification due to unexpected control-flow behavior
+    - Breaking assumptions used in constant-time or hardened code
+- Optimization correctness is not only a performance concern, but also a security dependency!
 
 </v-clicks>
 
+---
 ---
 layout: image
 image: "/images/opt_phase.svg"
@@ -261,6 +266,7 @@ backgroundSize: 60%
 
 ---
 layout: center 
+hideInToc: true
 ---
 
 # Thank you for your attention
