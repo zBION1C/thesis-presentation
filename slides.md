@@ -124,6 +124,41 @@ backgroundSize: 80%
 
 ---
 
+# Profile Accuracy
+<style>
+.footnotes {
+  margin-top: 50px;
+  font-size: 0.55em;
+}
+
+.footnotes-sep {
+  display: none;
+}
+
+.footnotes ol {
+  line-height: 1;
+}
+
+.footnotes li,
+.footnotes p {
+  margin: 0;
+}
+</style>
+- Profile accuracy is vital for a successful profile-guided optimization application
+- Profile inaccuracies can stem from various sources
+    - Sampling techniques needs to be rectified 
+    - Stale profile collected on older version of a program 
+    - Profile propagation throughout the pipeline needs to be accurate
+- Previous works tackled this three main inaccuracies sources
+    - Rectification problem [^profi]
+    - Staleness problem [^stale]
+    - Profile Propagation [^propagation]
+
+[^profi]: Wenlei He, Julián Mestre, Sergey Pupyrev, Lei Wang, and Hongtao Yu. “Profile inference revisited”.
+[^stale]: Amir Ayupov, Maksim Panchenko, and Sergey Pupyrev. “Stale Profile Matching”.
+[^propagation]: Youfeng Wu. “Accuracy of Profile Maintenance in Optimizing Compilers”.
+---
+
 # Profile Information Propagation 
 
 - The starting profile is propagated throughout the entire pipeline
