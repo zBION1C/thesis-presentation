@@ -7,7 +7,6 @@ transition: slide-left
 coverDate: false
 highlighter: shiki
 fonts:
-    sans: "Noto Sans"
     mono: "Fira Code"
 ---
 
@@ -30,10 +29,10 @@ Dr. Cristian Assaiante
 </div>
 
 ---
-layout: table-of-contents
 hideInToc: true
 ---
 # Table of Contents
+<Toc maxDepth=1 />
 
 ---
 layout: figure-side
@@ -42,20 +41,19 @@ figureUrl: "./static/compiler_structure.svg"
 
 # Compilers 
 
+<v-clicks every="1">
+
 - What is a compiler?
     - Translates source code -> target code
     - Preserves program semantic
     - *Optimizes* code during translation
-
-<v-clicks every="1">
-
 - Compiler Structure (3 Stages)
     - Front-end -> Parses source code -> builds IR
     - Middle-end -> Optimizes IR
     - Back-end -> Generates target code
 - Intermediate Representation (IR)
     - Multiple IR types exist
-    - Choice depends on compiler design goals
+    - Depends on compiler design goals
 
 </v-clicks>
 
@@ -318,28 +316,31 @@ Then $m_1 = m_2$ if
 </div>
 
 ---
+layout: image
+image: "./static/opt_phase.svg"
+backgroundSize: 60%
+---
 
-# Full Methodology 
+# <span class="text-black">Optimization Phase</span>
 
-<img src="./animations/media/videos/main/1080p60/Animation.gif" />
+---
+layout: image
+image: "./static/search.svg"
+backgroundSize: 60%
+---
 
+# <span class="text-black">Search Phase</span>
 
+---
 
+# Results
 
+- Eight major fuzzing campaigns were launched varying on
+    - Optimization pipelines tested
+    - Program generations parameters
+    - Globally disabled passes
+- Eleven total issues were found and reported to the LLVM community
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div align=center>
+<img src="./static/table.png" width=40% />
+</div>
