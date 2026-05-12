@@ -25,7 +25,7 @@ Dr. Cristian Assaiante
 </div>
 
 <div class="absolute bottom-0 right-0">
-    <img src="/images/logo.png" width="300" height="300">
+    <img src="/public/images/logo.png" width="300" height="300">
 </div>
 
 ---
@@ -71,7 +71,7 @@ figureUrl: "/images/compiler_structure.svg"
 <br>
 <br>
 <div align="flex flex-col items-center"> 
-    <img src="./images/pipeline.svg" class="mx-auto">
+    <img src="/public/images/pipeline.svg" class="mx-auto">
 </div>
 
 ---
@@ -208,7 +208,7 @@ else: float = 0.2, int = 3602879705251840, count = 200
     - Additional logic to handle profile metadata in passes source code
 
 <div class="p-20px" align=center>
-    <img src="/images/propagation.svg">
+    <img src="/public/images/propagation.svg">
 </div>
 
 - Bugs in such a logic reduce the efficacy of PGO
@@ -312,7 +312,7 @@ Then $m_1 = m_2$ if
 </DefinitionBox>
 
 <div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
-<img src="/images/method.svg">
+<img src="/public/images/method.svg">
 </div>
 
 ---
@@ -342,5 +342,5 @@ backgroundSize: 60%
 - Eleven total issues were found and reported to the LLVM community
 
 <div align=center>
-<img src="/images/table.png" width=40% />
+<img src="/public/images/table.png" width=40% />
 </div>
