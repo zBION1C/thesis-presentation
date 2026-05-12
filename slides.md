@@ -212,16 +212,20 @@ backgroundSize: 60%
 
 # Results
 
+<v-clicks> 
+
 - Eight major fuzzing campaigns were launched varying on
     - Optimization pipelines tested
     - Program generations parameters
     - Globally disabled passes
-
 - Eleven total issues were found and reported to the LLVM community
 
-<div align=center>
+</v-clicks>
+
+<div align=center v-click>
 <img src="/public/images/table.png" width=40% />
 </div>
+
 
 ---
 
@@ -241,6 +245,8 @@ backgroundSize: 60%
 ---
 
 # Future works
+<v-clicks>
+
 - From an evaluation perspective 
     - Evaluate the framework with real world applications
     - Evaluate how discovered and fixed bugs affect performance in generated binaries
@@ -250,3 +256,11 @@ backgroundSize: 60%
     - Analysis scripts remain virtually the same
 - Improving the tracking of basic block  
     - To enhance the accuracy of fault attribution 
+
+</v-clicks>
+
+---
+layout: center 
+---
+
+# Thank you for your attention
