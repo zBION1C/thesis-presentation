@@ -121,7 +121,6 @@ backgroundSize: 80%
     }
     !1 = !{!"function_entry_count", i64 2590}
     ```
-    - `vp` -> Profiles data values passed to functions (Not treated)
 
 ---
 
@@ -196,7 +195,6 @@ else: ❄️
 
 </v-clicks>
 
----
 ---
 layout: image
 image: "/images/opt_phase.svg"
