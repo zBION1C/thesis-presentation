@@ -36,7 +36,7 @@ hideInToc: true
 
 ---
 layout: figure-side
-figureUrl: "./static/compiler_structure.svg"
+figureUrl: "/static/compiler_structure.svg"
 ---
 
 # Compilers 
@@ -95,13 +95,13 @@ figureUrl: "./static/compiler_structure.svg"
 
 ---
 layout: image
-image: "./static/pgo.svg"
+image: "/static/pgo.svg"
 backgroundSize: 80%
 ---
 ## <span class="text-black">PGO Workflow</span>
 ---
 layout: figure-side
-figureUrl: "./static/llvm.svg"
+figureUrl: "/static/llvm.svg"
 figureCaption: "LLVM architecture"
 ---
 
@@ -317,7 +317,7 @@ Then $m_1 = m_2$ if
 
 ---
 layout: image
-image: "./static/opt_phase.svg"
+image: "/static/opt_phase.svg"
 backgroundSize: 60%
 ---
 
@@ -325,7 +325,7 @@ backgroundSize: 60%
 
 ---
 layout: image
-image: "./static/search.svg"
+image: "/static/search.svg"
 backgroundSize: 60%
 ---
 
