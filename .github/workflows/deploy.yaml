@@ -1,16 +1,8 @@
-name: Deploy pages
+name: Deploy Slidev to GitHub Pages
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main, master]
-
-permissions:
-  contents: read
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+    branches: [main]
 
 jobs:
   build:
@@ -19,37 +11,39 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
+          node-version: 20
+          cache: pnpm
 
       - name: Install dependencies
-        run: nci
+        run: pnpm install --ignore-scripts=false
 
-      - name: Build
-        run: nr build --base /${{github.event.repository.name}}/
+      - name: Build slides
+        run: pnpm slidev build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
   deploy:
+    needs: build
+
     permissions:
       pages: write
       id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
+
     runs-on: ubuntu-latest
-    name: Deploy
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
