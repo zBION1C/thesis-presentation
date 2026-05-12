@@ -144,6 +144,8 @@ backgroundSize: 80%
 # Toy Example 
 <div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;">
 
+<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;">
+
 ```llvm{all|3,4|6,7|9,10|12}
 % Before dummy pass
 entry:
@@ -159,23 +161,46 @@ else: ❄️
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+entry[Entry] -->|80%| then[Then]
+entry -->|20%| else[Else]
+
+style else fill:#4f46e5,color:#fff
+style then fill:#ef4444,color:#fff
+```
+
+</div>
+
+<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;">
+
 ```llvm{all|3,4|6,7|9,10|12}
 % After dummy pass
 entry:
   %cmp = icmp sle i32 %x, 0
-  br i1 %cmp, label %then, label %else, !prof !0
+  br i1 %cmp, label %else, label %then, !prof !0
 
-then: 🔥
-    call i32 @handle_negative_x(i32 %x)
-
-else: ❄️
+then: ❄️
     call i32 @handle_positive_x(i32 %x)
+
+else: 🔥
+    call i32 @handle_negative_x(i32 %x)
 
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+entry[Entry] -->|80%| else[Else]
+entry -->|20%| then[Then]
+
+style then fill:#4f46e5,color:#fff
+style else fill:#ef4444,color:#fff
+```
+
 </div>
- 
+</div>
+
 ---
 
 # Security Implications
@@ -228,7 +253,6 @@ backgroundSize: 60%
 <div align=center v-click>
 <img src="/public/images/table.png" width=40% />
 </div>
-
 
 ---
 
