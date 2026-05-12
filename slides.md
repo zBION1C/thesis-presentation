@@ -160,7 +160,7 @@ else: ❄️
 !0 = !{!"branch_weights", i32 80, i32 20}
 ```
 
-```llvm{none|3,4|6,7|9,10|12}
+```llvm{all|3,4|6,7|9,10|12}
 % After dummy pass
 entry:
   %cmp = icmp sle i32 %x, 0
@@ -216,8 +216,37 @@ backgroundSize: 60%
     - Optimization pipelines tested
     - Program generations parameters
     - Globally disabled passes
+
 - Eleven total issues were found and reported to the LLVM community
 
 <div align=center>
 <img src="/public/images/table.png" width=40% />
 </div>
+
+---
+
+# Summary 
+<v-clicks>
+
+- A new methodology introduced 
+    - Based on the comparison with a ground-truth profile 
+    - Detects profile propagation errors systematically
+- Framework implemented and evaluated 
+    - Validation performed through large fuzzing campaigns
+- Real bugs discovered
+    - Confirms the validity of the proposed methodology
+
+</v-clicks>
+
+---
+
+# Future works
+- From an evaluation perspective 
+    - Evaluate the framework with real world applications
+    - Evaluate how discovered and fixed bugs affect performance in generated binaries
+    - Evaluate how randomly generated programs impacts the codebase coverage in LLVM
+- Test the framework on other compiler infrastructure
+    - Need to change only the framework back-end 
+    - Analysis scripts remain virtually the same
+- Improving the tracking of basic block  
+    - To enhance the accuracy of fault attribution 
