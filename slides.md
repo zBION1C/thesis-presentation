@@ -98,33 +98,8 @@ layout: image
 image: "/images/pgo.svg"
 backgroundSize: 80%
 ---
+
 ## <span class="text-black">PGO Workflow</span>
----
-layout: figure-side
-figureUrl: "/images/llvm.svg"
-figureCaption: "LLVM architecture"
----
-
-# The LLVM Project
-
-- The LLVM Project 
-    - A collection of modular and reusable compiler and toolchain technologies
-    - Designed around a modern SSA-based compilation strategy 
-
-<v-clicks depth="1">
-
-- Key Components
-    - LLVM Core -> Source- and target-independent optimizer
-    - Clang -> Native C/C++ compiler for LLVM
-    - LLD ->  High-performance linker
-
-</v-clicks>
-
-<v-click>
-
-...and many more!
-
-</v-click>
 
 ---
 
@@ -218,102 +193,60 @@ else: float = 0.2, int = 3602879705251840, count = 200
 
 ---
 
-# Problem Formalization
-
-<div class="flex flex-col" style="justify-content:center;height:90%">
-<DefinitionBox title="Definition 3: Profile propagation analysis problem">
-
-Let $O$ be a profile-guided optimization pipeline. Let $(G, p)$ be a profiled program. Let $(G', p') = O(G, p)$ be the profiled program resulting by applying $O$ to $(G, p)$.
-The *profile propagation analysis problem* consist of performing the following tasks:
-- Determine if $O$ made some profile propagation errors.
-- If profile propagation errors were made by $O$, spot the faulty passes for this errors.
-
-</DefinitionBox>
-</div>
-
----
-
-## Profile and Block Frequency Formalization
-
-<div class="flex flex-col" style="justify-content:center;height:90%;gap:10px">
-<DefinitionBox title="Definition 1: Profiled Program">
-
-Given a program $A$ represented as a control-flow graph $G=(E,V)$, a *profile* of $A$ is a function $p: E \to \mathcal{N}$
-that assigns to each edge $(v,w) \in G$ the number of times control flows from basic block $v$ to basic block $w$.
-We denote the program $A$ with profile $p$ as the pair $(A,p)$.
-
-</DefinitionBox>
-
-<DefinitionBox title="Definition 2: Block Frequency">
-
-Give a profiled program $(G=(V,E), p)$ the *block frequency function* is a function $f_p: V \to \mathcal{N}$ that assigns to each basic block
-$v \in V$ the number of times $v$ is reached during program execution, as derived from profile $p$.
-
-</DefinitionBox>
-</div>
-
----
-
-## Spotting profile propagation errors 
-
-<DefinitionBox title="Definition 4: Profile Equivalence Relation">
-
-Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
-$p$ is said to be equivalent to $q$ if $\forall v \in V, f_p(v) = f_q(v)$ 
-
-</DefinitionBox>
-
-<v-clicks :depth=2>
-
-- Now consider:
-    - $p$ -> profile computed by the pipeline on the optimized program
-    - $q$ -> profile computed instrumenting and re-executing the optimized program 
-    - if $p \neq q$ then pipeline made some profile propagation errors 
-
-</v-clicks>
-
----
-
-## Identifying Culprit Passes 
-
-
-<DefinitionBox title="Definition 5: Profile Mismatch">
-
-Let $p$ and $q$ be two profiles for the same program $G$ and let $f_p$ and $f_q$ be their respective block frequency functions.
-Let $p\neq q$.<br> A *profile mismatch* is a tuple $(G, f, bb, f_p(bb), f_q(bb))$ such that
-- $f$ is a function within $G$
-- $bb$ is a basic block within $f$ 
-- $f_p(bb) \neq f_q(bb)$
-
-</DefinitionBox>
+# Toy Example 
+<div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;" >
 
 <v-clicks>
 
-- A single pipeline application can results in multiple profile mismatches 
-- We need a way to attribute to a mismatch the pass that caused it...
+```llvm{all|2,3|5,6|8,9|11}
+% Before dummy pass
+entry:
+  %cmp = icmp sgt i32 %x, 0
+  br i1 %cmp, label %then, label %else, !prof !0
+
+then:
+    call i32 @handle_positive_x(i32 %x)
+
+else:
+    call i32 @handle_negative_x(i32 %x)
+
+!0 = !{!"branch_weights", i32 80, i32 20}
+```
+
+```llvm{all|2,3|5,6|8,9|11}
+% After dummy pass
+entry:
+  %cmp = icmp sle i32 %x, 0
+  br i1 %cmp, label %then, label %else, !prof !0
+
+then:
+    call i32 @handle_negative_x(i32 %x)
+
+else:
+    call i32 @handle_positive_x(i32 %x)
+
+!0 = !{!"branch_weights", i32 80, i32 20}
+```
+
 
 </v-clicks>
 
----
-hideInToc: true
----
-
-## Identifying Culprit Passes
-
-<DefinitionBox title="Definition 6: Mismatch Equivalence Relation">
-
-Let $G$ and $G'$ be programs, where $G'$ is obtained by manipulating $G$ in some way.
-Let $m_1 = (G, f, bb, f_p(bb), f_q(bb))$ and $m_2 = (G', f', bb', f_p(bb'), f_q(bb'))$ be two mismatches for their respective programs.
-Then $m_1 = m_2$ if
-- $f$ and $f'$ names are equal
-- $f_p(bb) = f_p(bb')$ 
-- $f_q(bb) = f_q(bb')$
-
-</DefinitionBox>
-
-<div align=center style="height:100%" v-click v-motion :initial="{x:-50}" :enter="{x:0}" >
-<img src="/public/images/method.svg">
 </div>
+ 
+---
+
+# Security Implications
+
+<v-clicks>
+
+- Compilers are a critical component of software development
+    - They perform software quality assurance checks
+    - They are used to enforce security properties
+- Sub-optimal binaries can alter the timings
+    - Latency-sensitive applications could break
+    - Greater side-channel attacks opportunities! 
+
+</v-clicks>
 
 ---
 layout: image
