@@ -6,5 +6,3 @@ dist
 .remote-assets
 components.d.ts
 .cache
-package-lock.json
-
