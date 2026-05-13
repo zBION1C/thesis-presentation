@@ -103,27 +103,6 @@ backgroundSize: 80%
 
 ---
 
-# Profile Guided Optimization in LLVM 
-
-- Profile information encoded as instruction metadata
-    - `branch_weights` -> Counts associated to instructions that change the control flow 
-    ```llvm {all|4,5}
-    bb41:
-      store i32 0, ptr %i40, align 4
-      %i42 = load <4 x i32>, ptr @h, align 16
-      br i1 %i39, label %.split.us.preheader, label %.split.preheader, !prof !30
-    !30 = !{!"branch_weights", i32 2000, i32 1000}
-    ```
-    - `function_entry_counts` -> Number of times a function was called
-    ```llvm {all|4}
-    define i32 @foo() !prof !1 {
-      ret i32 0
-    }
-    !1 = !{!"function_entry_count", i64 2590}
-    ```
-
----
-
 # Profile Inaccuracy Sources
 <style>
 .footnotes {
@@ -180,71 +159,29 @@ No previous work provides a way to spot such bugs within complex optimization pi
 ---
 
 # Toy Example 
-<div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center;">
-
-<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;">
-
-```llvm{all|3,4|6,7|9,10|12}
-% Before dummy pass
-entry:
-  %cmp = icmp sgt i32 %x, 0
-  br i1 %cmp, label %then, label %else, !prof !0
-
-then: 🔥
-    call i32 @handle_positive_x(i32 %x)
-
-else: ❄️
-    call i32 @handle_negative_x(i32 %x)
-
-!0 = !{!"branch_weights", i32 80, i32 20}
-```
+<div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center; height:80%;">
 
 <v-clicks>
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-entry[Entry] -->|80%| then[Then]
-entry -->|20%| else[Else]
-
-style else fill:#4f46e5,color:#fff
-style then fill:#ef4444,color:#fff
+```c{all}
+// Before pass
+if (x > 0) { // Then branch taken 80 times
+    handle_positive_x(x) 🔥
+} else { // Else branch taken 20 times
+    handle_negative_x(x) ❄️
+}
 ```
 
+```c{all}
+// After pass
+if (x <= 0) { // Then branch taken 80 times
+    handle_negative_x(x) 🔥
+} else { // Else branch taken 20 times
+    handle_positive_x(x) ❄️
+}
+```
 </v-clicks>
 
-</div>
-
-<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;" >
-
-```llvm{all|3,4|6,7|9,10|12}
-% After dummy pass
-entry:
-  %cmp = icmp sle i32 %x, 0
-  br i1 %cmp, label %else, label %then, !prof !0
-
-then: ❄️
-    call i32 @handle_positive_x(i32 %x)
-
-else: 🔥
-    call i32 @handle_negative_x(i32 %x)
-
-!0 = !{!"branch_weights", i32 80, i32 20}
-```
-
-<v-clicks>
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-entry[Entry] -->|80%| else[Else]
-entry -->|20%| then[Then]
-
-style then fill:#4f46e5,color:#fff
-style else fill:#ef4444,color:#fff
-```
-
-</v-clicks>
-
-</div>
 </div>
 
 ---
