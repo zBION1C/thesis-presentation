@@ -124,7 +124,7 @@ backgroundSize: 80%
 
 ---
 
-# Profile Accuracy
+# Profile Inaccuracy Sources
 <style>
 .footnotes {
   margin-top: 50px;
@@ -170,9 +170,12 @@ backgroundSize: 80%
 </div>
 
 - Bugs in such a logic reduce the efficacy of PGO
-    - Subsequent pass will work on wrong profile information
-    - A cascading effect will trigger
-    - Bad optimization decisions can be taken!
+    - Even a single wrong propagation can trigger a cascading effect
+    - Subsequent pass will work on wrong profile information!
+
+<div style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;" v-click>
+No previous work provides a way to spot such bugs within complex optimization pipelines
+</div>
 
 ---
 
