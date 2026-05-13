@@ -250,7 +250,7 @@ style else fill:#ef4444,color:#fff
 
 <v-clicks>
 
-- Compilers are part of the **Trusted Computing Base (TCB)**
+- Compilers are a critical components of software development 
     - Their correctness impacts both correctness *and security* of software
 - Profile-Guided Optimization influences critical low-level decisions
     - Code layout (hot vs cold blocks)
