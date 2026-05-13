@@ -269,7 +269,8 @@ backgroundSize: 60%
     - Based on the comparison with a ground-truth profile 
     - Detects profile propagation errors systematically
 - Framework implemented and evaluated 
-    - Validation performed through large fuzzing campaigns
+    - Validation performed on LLVM compiler infrastructure
+    - Large fuzzing campaigns to stress test the compiler
 - Real bugs discovered
     - Confirms the validity of the proposed methodology
 
