@@ -161,27 +161,50 @@ No previous work provides a way to spot such bugs within complex optimization pi
 # Toy Example 
 <div style="display:flex; flex-direction:row; justify-content:space-evenly; align-items:center; height:80%;">
 
-<v-clicks>
+<div style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;">
 
 ```c{all}
 // Before pass
 if (x > 0) { // Then branch taken 80 times
-    handle_positive_x(x) 🔥
+    handle_positive(x) 🔥
 } else { // Else branch taken 20 times
-    handle_negative_x(x) ❄️
+    handle_negative(x) ❄️
 }
 ```
+
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+entry[if x > 0] -->|"T:80%"| else["handle_positive(x)"]
+entry -->|"F:20%"| then["handle_negative(x)"]
+
+style then fill:#4f46e5,color:#fff
+style else fill:#ef4444,color:#fff
+```
+
+</div>
+
+
+<div v-click style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;" >
 
 ```c{all}
 // After pass
 if (x <= 0) { // Then branch taken 80 times
-    handle_negative_x(x) 🔥
+    handle_negative(x) 🔥
 } else { // Else branch taken 20 times
-    handle_positive_x(x) ❄️
+    handle_positive(x) ❄️
 }
 ```
-</v-clicks>
 
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+entry[if x <= 0] -->|"T:80%"| else["handle_negative(x)"]
+entry -->|"F:20%"| then["handle_positive(x)"]
+
+style then fill:#4f46e5,color:#fff
+style else fill:#ef4444,color:#fff
+```
+
+</div>
 </div>
 
 ---
