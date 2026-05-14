@@ -57,6 +57,13 @@ figureUrl: "/images/compiler_structure.svg"
 
 </v-clicks>
 
+<!-- A compiler translates a program written in some language 
+into a semantically equivalent program in another language. 
+While doing so, it tries to optimize the program to smooth
+out every possible imperfection introduced by the programmer 
+The IR is designed to simplify some analysis needed for the 
+optimization process -->
+
 ---
 
 # Optimizations
@@ -65,7 +72,7 @@ figureUrl: "/images/compiler_structure.svg"
     - A sequence of transformations (a.k.a. Pipeline)
     - The IR is processed at each pass 
     - Output is a *better* program w.r.t. some performance metrics.
-    - Supported by static or dynamic analysis that <span v-mark="{at:1, color: 'red', type: 'underline'}">estimate</span> control-flow
+    - Supported by static analysis that <span v-mark="{at:1, color: 'red', type: 'underline'}">estimate</span> control-flow
 
 <br>
 <br>
@@ -73,6 +80,8 @@ figureUrl: "/images/compiler_structure.svg"
 <div align="flex flex-col items-center"> 
     <img src="/public/images/pipeline.svg" class="mx-auto">
 </div>
+
+<!-- Static analysis relies on conservative heuristics thus are not very precise -->
 
 ---
 
@@ -136,6 +145,7 @@ backgroundSize: 80%
 [^profi]: Wenlei He, Julián Mestre, Sergey Pupyrev, Lei Wang, and Hongtao Yu. “Profile inference revisited”.
 [^stale]: Amir Ayupov, Maksim Panchenko, and Sergey Pupyrev. “Stale Profile Matching”.
 [^propagation]: Youfeng Wu. “Accuracy of Profile Maintenance in Optimizing Compilers”.
+
 ---
 
 # Profile Information Propagation 
@@ -222,7 +232,10 @@ style else fill:#ef4444,color:#fff
 - Security-relevant consequences
     - Timing side-channel amplification due to unexpected control-flow behavior
     - Breaking assumptions used in constant-time or hardened code
-- Optimization correctness is not only a performance concern, but also a security dependency!
+ 
+<div style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;" v-click>
+ Optimization correctness is not only a performance concern, but also a security dependency!
+</div>
 
 </v-clicks>
 
