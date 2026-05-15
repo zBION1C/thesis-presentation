@@ -300,7 +300,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -309,7 +309,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -318,7 +318,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -327,7 +327,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -336,7 +336,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -345,7 +345,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -354,7 +354,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -363,7 +363,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -372,7 +372,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -381,7 +381,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -390,7 +390,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -399,7 +399,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -408,7 +408,7 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
@@ -417,11 +417,11 @@ backgroundSize: 80%
 transition: fade
 ---
 
-# <span class="text-black">Optimization Phase</span>
+## <span class="text-black">Optimization Phase</span>
 
 ---
 
-# Search Phase
+## Search Phase
 
 ---
 
