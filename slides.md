@@ -10,6 +10,27 @@ fonts:
     mono: "Fira Code"
 ---
 
+<style>
+.footnotes {
+  margin-top: 50px;
+  font-size: 0.55em;
+}
+
+.footnotes-sep {
+  display: none;
+}
+
+.footnotes ol {
+  line-height: 1;
+}
+
+.footnotes li,
+.footnotes p {
+  margin: 0;
+}
+</style>
+
+
 ## Spotting Accuracy Issues in Profile-Guided Optimization 
 A new methodology to spot metadata propagation errors within optimization pipelines
 
@@ -190,34 +211,15 @@ backgroundSize: 80%
 ---
 
 # Profile Inaccuracy Sources
-<style>
-.footnotes {
-  margin-top: 50px;
-  font-size: 0.55em;
-}
-
-.footnotes-sep {
-  display: none;
-}
-
-.footnotes ol {
-  line-height: 1;
-}
-
-.footnotes li,
-.footnotes p {
-  margin: 0;
-}
-</style>
-- Profile accuracy is vital for a successful profile-guided optimization application
+- Profiles needs to accurately reflect actual runtime control flow
 - Profile inaccuracies can stem from various sources
     - Sampling techniques needs to be rectified 
     - Stale profile collected on older version of a program 
     - Profile propagation throughout the pipeline needs to be accurate
 - Previous works tackled this three main inaccuracies sources
-    - Rectification problem [^profi]
-    - Staleness problem [^stale]
-    - Profile Propagation [^propagation]
+    - Rectification problem: Rectification algorithm following flow conservation rules [^profi]
+    - Staleness problem: Structural matching and inference algorithm [^stale]
+    - Profile Propagation: Study on scale of the problem [^propagation]
 
 [^profi]: Wenlei He, Julián Mestre, Sergey Pupyrev, Lei Wang, and Hongtao Yu. “Profile inference revisited”.
 [^stale]: Amir Ayupov, Maksim Panchenko, and Sergey Pupyrev. “Stale Profile Matching”.
@@ -228,7 +230,7 @@ backgroundSize: 80%
 # Profile Information Propagation 
 
 - The starting profile is propagated throughout the entire pipeline
-    - Each LLVM optimization is responsible for the update of the profile information
+    - Each optimization is responsible for the update of the profile information
     - Additional logic to handle profile metadata in passes source code
 
 <div class="p-20px" align=center>
@@ -307,19 +309,34 @@ style else fill:#ef4444,color:#fff
     - Branch prediction hints
     - Inlining and execution hot paths
 - Security-relevant consequences
-    - Timing side-channel amplification due to unexpected control-flow behavior
+    - Timing side-channel amplification due to unexpected control-flow behavior[^side]
     - Breaking assumptions used in constant-time or hardened code
  
-<div style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;" v-click>
+<div style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;">
  Optimization correctness is not only a performance concern, but also a security dependency!
 </div>
 
 </v-clicks>
 
+[^side]: Thomas Allan, Billy Bob Brumley, Katrina Falkner, Joop van de Pol, and Yuval Yarom. “Amplifying side channels through performance degradation”
+
+---
+
+# Proposed Methodology 
+
+- Novel methodology to spot profile propagation bugs
+- Organized in two main phases
+    - Optimization phase: Spots profile mismatches introduce by a full pipeline
+    - Search phase: Attributes faulty pass for each found mismatch 
+
+<br>
+<div align="flex flex-col items-center"> 
+    <img src="/public/images/method.svg" class="mx-auto">
+</div>
 ---
 layout: image
 image: "/images/opt/opt1.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -328,7 +345,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt2.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -337,7 +354,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt3.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -346,7 +363,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt5.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -355,7 +372,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt6.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -364,7 +381,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt7.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -373,7 +390,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt8.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -382,7 +399,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt9.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -391,7 +408,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt10.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -400,7 +417,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt11.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -409,7 +426,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt12.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -418,7 +435,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt13.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -427,7 +444,7 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt14.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
@@ -436,23 +453,31 @@ transition: fade
 ---
 layout: image
 image: "/images/opt/opt15.svg"
-backgroundSize: 80%
+backgroundSize: 90%
 transition: fade
 ---
 
 ## <span class="text-black">Optimization Phase</span>
 
 ---
+layout: figure-side
+figureUrl: "/images/report.png"
+---
 
 ## Search Phase
 
+- Phase to perform fault attribution
+    - Each found mismatch is attributed to the pass that caused it
+    - This helps to pinpoint the cause of a profile propagation error
+    - Based on a binary search on the optimization pipeline
+- The output is a JSON report containing all the mismatches found with fault information
 ---
 
 # Results
 
 <v-clicks> 
 
-- Eight major fuzzing campaigns were launched varying on
+- Eight major testing campaigns were launched varying on
     - Optimization pipelines tested
     - Program generations parameters
     - Globally disabled passes
@@ -467,6 +492,7 @@ transition: fade
 ---
 
 # Summary 
+
 <v-clicks>
 
 - A new methodology introduced 
@@ -474,11 +500,15 @@ transition: fade
     - Detects profile propagation errors systematically
 - Framework implemented and evaluated 
     - Validation performed on LLVM compiler infrastructure
-    - Large fuzzing campaigns to stress test the compiler
+    - Large testing campaigns to stress test the compiler
 - Real bugs discovered
     - Confirms the validity of the proposed methodology
 
 </v-clicks>
+
+<div class="absolute bottom-30px right-20px">
+    <img src="/public/images/Google-logo.png" width="200px"/>
+</div>
 
 ---
 

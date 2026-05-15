@@ -1,0 +1,18 @@
+.footnotes {
+  margin-top: 40px;
+  font-size: 0.55em;
+}
+
+.footnotes-sep {
+  display: none;
+}
+
+.footnotes ol {
+  line-height: 1;
+}
+
+.footnotes li,
+.footnotes p {
+  margin: 0;
+}
+
