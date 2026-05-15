@@ -7,7 +7,7 @@
     <hr>
     <div class="flex items-center" style="justify-content: space-between">
       <span>
-        Nicholas Montana - Department of Computer, Control and Management Engineering Antonio Ruberti
+        Nicholas Montana, 1888414 - Department of Computer, Control and Management Engineering Antonio Ruberti
       </span>
       <img src="/public/images/logo.png" width=80 height=80>
     </div>
