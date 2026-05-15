@@ -531,7 +531,7 @@ figureUrl: "/images/report.png"
 - From an evaluation perspective 
     - Evaluate the framework with real world applications
     - Evaluate how discovered and fixed bugs affect performance in generated binaries
-    - Evaluate how randomly generated programs impacts the codebase coverage in LLVM
+    - Evaluate how randomly generated programs[^csmith] impacts the codebase coverage in LLVM
 - Test the framework on other compiler infrastructure
     - Need to change only the framework back-end 
     - Analysis scripts remain virtually the same
@@ -539,6 +539,8 @@ figureUrl: "/images/report.png"
     - To enhance the accuracy of fault attribution 
 
 </v-clicks>
+
+[^csmith]: Xuejun Yang, Yang Chen, Eric Eide, and John Regehr. “Finding and understanding bugs in C compilers”.
 
 ---
 layout: center 
