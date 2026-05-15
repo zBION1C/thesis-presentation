@@ -36,33 +36,41 @@ hideInToc: true
 
 ---
 layout: figure-side
-figureUrl: "/images/compiler_structure.svg"
+figureUrl: "/images/dev.svg"
 ---
 
 # Compilers 
 
 <v-clicks every="1">
 
-- What is a compiler?
-    - Translates source code -> target code
-    - Preserves program semantic
-    - *Optimizes* code during translation
-- Compiler Structure (3 Stages)
-    - Front-end -> Parses source code -> builds IR
-    - Middle-end -> Optimizes IR
-    - Back-end -> Generates target code
-- Intermediate Representation (IR)
-    - Multiple IR types exist
-    - Depends on compiler design goals
+- What is a compiler?  
+  - Translates high-level code into machine/executable code  
+  - Bridges human code and CPU instructions  
+- Optimization  
+  - Improves speed and memory usage  
+  - Removes inefficiencies (e.g., dead code, inlining, simplifications)  
 
 </v-clicks>
 
-<!-- A compiler translates a program written in some language 
-into a semantically equivalent program in another language. 
-While doing so, it tries to optimize the program to smooth
-out every possible imperfection introduced by the programmer 
-The IR is designed to simplify some analysis needed for the 
-optimization process -->
+---
+layout: figure-side
+figureUrl: "/images/compiler_structure.svg"
+---
+
+# Compilers Architecture
+
+<v-clicks>
+
+- Compiler Structure 
+    - Front-end -> From source code to IR
+    - Middle-end -> Optimizes IR
+    - Back-end -> Generates target code
+- Intermediate Representation (IR)
+    - Manipulated by the middle end
+    - Designed to simplify optimizations
+    - Multiple types exists
+
+</v-clicks>
 
 ---
 
@@ -81,11 +89,26 @@ optimization process -->
     <img src="/public/images/pipeline.svg" class="mx-auto">
 </div>
 
-<!-- Static analysis relies on conservative heuristics thus are not very precise -->
+<!-- 
+- Static analysis relies on conservative heuristics 
+- Pipelines result of a lot of experimentations by developers
+-->
 
 ---
 
 # Profile Guided Optimization
+
+<div class="absolute right-100px bottom-90px">
+
+```mermaid {scale: 0.8}
+flowchart TD
+A[A:30] -->|10| B[B:10]
+A -->|20| C[C:20]
+C -->|20| D[D:30]
+B -->|10| D
+```
+
+</div>
 
 <v-clicks every="1">
 
