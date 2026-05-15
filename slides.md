@@ -473,31 +473,44 @@ figureUrl: "/images/report.png"
 - The output is a JSON report containing all the mismatches found with fault information
 ---
 
-# Results
-
-<v-clicks> 
+# Evaluation 
 
 - Eight major testing campaigns were launched varying on
     - Optimization pipelines tested
     - Program generations parameters
     - Globally disabled passes
-- Eleven total issues were found and reported to the LLVM community
-
-</v-clicks>
+- Evaluation performed on the LLVM compiler infrastructure 
+    - Open source and inclined to research
 
 <div align=center v-click>
-<img src="/public/images/table.png" width=40% />
+    <img src="/public/images/graph.svg" width=40% />
+</div>
+
+
+---
+
+# Results
+
+- Eleven total issues were found and reported to the LLVM community
+    - One was an hard to spot integer overflow!
+    - (2 more reported a couple of days ago)
+
+<br>
+<div align=center v-click>
+    <img src="/public/images/table.png" width=40% />
 </div>
 
 ---
 
 # Summary 
 
-<v-clicks>
 
 - A new methodology introduced 
     - Based on the comparison with a ground-truth profile 
     - Detects profile propagation errors systematically
+
+<v-clicks>
+
 - Framework implemented and evaluated 
     - Validation performed on LLVM compiler infrastructure
     - Large testing campaigns to stress test the compiler
