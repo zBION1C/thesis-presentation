@@ -104,7 +104,61 @@ optimization process -->
 
 ---
 layout: image
-image: "/images/pgo.svg"
+image: "/images/pgo/pgo1.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo2.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo3.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo4.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo5.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo6.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+## <span class="text-black">PGO Workflow</span>
+
+---
+layout: image
+image: "/images/pgo/pgo7.svg"
 backgroundSize: 80%
 ---
 
@@ -241,19 +295,133 @@ style else fill:#ef4444,color:#fff
 
 ---
 layout: image
-image: "/images/opt_phase.svg"
-backgroundSize: 60%
+image: "/images/opt/opt1.svg"
+backgroundSize: 80%
+transition: fade
 ---
 
 # <span class="text-black">Optimization Phase</span>
 
 ---
 layout: image
-image: "/images/search.svg"
-backgroundSize: 60%
+image: "/images/opt/opt2.svg"
+backgroundSize: 80%
+transition: fade
 ---
 
-# <span class="text-black">Search Phase</span>
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt3.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt5.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt6.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt7.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt8.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt9.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt10.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt11.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt12.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt13.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt14.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+layout: image
+image: "/images/opt/opt15.svg"
+backgroundSize: 80%
+transition: fade
+---
+
+# <span class="text-black">Optimization Phase</span>
+
+---
+
+# Search Phase
 
 ---
 
