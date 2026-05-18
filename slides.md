@@ -404,19 +404,19 @@ figureUrl: "/images/report.png"
     <img src="/public/images/graph.svg" width=40% />
 </div>
 
-
 ---
 
 # Results
 
-- Eleven total issues were found and reported to the LLVM community
+- Eleven total issues were found and reported to the LLVM community [^*]
     - One was an hard to spot integer overflow!
-    - (2 more reported a couple of days ago)
 
 <br>
 <div align=center v-click>
     <img src="/public/images/table.png" width=40% />
 </div>
+
+[^*]: 2 more reported a couple of days ago
 
 ---
 
