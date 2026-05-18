@@ -10,27 +10,6 @@ fonts:
     mono: "Fira Code"
 ---
 
-<style>
-.footnotes {
-  margin-top: 50px;
-  font-size: 0.55em;
-}
-
-.footnotes-sep {
-  display: none;
-}
-
-.footnotes ol {
-  line-height: 1;
-}
-
-.footnotes li,
-.footnotes p {
-  margin: 0;
-}
-</style>
-
-
 ## Spotting Accuracy Issues in Profile-Guided Optimization 
 A new methodology to spot metadata propagation errors within optimization pipelines
 
@@ -67,7 +46,7 @@ figureUrl: "/images/dev.svg"
 - What is a compiler?  
   - Translates high-level code into machine/executable code  
   - Bridges human code and CPU instructions  
-- Optimization  
+- Optimizations  
   - Improves speed and memory usage  
   - Removes inefficiencies (e.g., dead code, inlining, simplifications)  
 
@@ -329,6 +308,10 @@ style else fill:#ef4444,color:#fff
     - Optimization phase: Spots profile mismatches introduce by a full pipeline
     - Search phase: Attributes faulty pass for each found mismatch 
 
+
+<br>
+<br>
+<br>
 <br>
 <div align="flex flex-col items-center"> 
     <img src="/public/images/method.svg" class="mx-auto">
@@ -462,9 +445,10 @@ transition: fade
 ---
 layout: figure-side
 figureUrl: "/images/report.png"
+hideInToc: true
 ---
 
-## Search Phase
+# Search Phase
 
 - Phase to perform fault attribution
     - Each found mismatch is attributed to the pass that caused it
