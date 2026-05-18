@@ -34,7 +34,7 @@ hideInToc: true
 
 # Table of Contents
 
-<Toc maxDepth=1 columns=2 />
+<Toc maxDepth=1 />
 
 ---
 layout: figure-side
@@ -58,6 +58,7 @@ figureUrl: "/images/dev.svg"
 ---
 layout: figure-side
 figureUrl: "/images/compiler_structure.svg"
+hideInToc: true
 ---
 
 # Compilers Architecture
@@ -74,6 +75,8 @@ figureUrl: "/images/compiler_structure.svg"
 
 </v-clicks>
 
+---
+hideInToc: true
 ---
 
 # Optimizations
@@ -128,6 +131,8 @@ B -->|10| D
 </v-clicks>
 
 ---
+hideInToc: true
+---
 
 # PGO Workflow
 
@@ -162,6 +167,8 @@ B -->|10| D
 </div>
 
 ---
+hideInToc: true
+---
 
 # Profile Inaccuracy Sources
 
@@ -193,7 +200,7 @@ B -->|10| D
 
 --- 
 
-# Proposed Solutions
+# State of the Art 
 
 - Previous works tackled this three main inaccuracies sources
     - Rectification problem: Rectification algorithm following flow conservation rules [^profi]
@@ -224,6 +231,8 @@ B -->|10| D
 No previous work provides a way to spot such bugs within complex optimization pipelines
 </div>
 
+---
+hideInToc: true
 ---
 
 # Toy Example 
@@ -276,6 +285,8 @@ style else fill:#ef4444,color:#fff
 </div>
 
 ---
+hideInToc: true
+---
 
 # Security Implications
 
@@ -301,7 +312,7 @@ style else fill:#ef4444,color:#fff
 
 ---
 
-# Proposed Methodology 
+# Proposed Solution 
 
 - Novel methodology to spot profile propagation bugs
 - Organized in two main phases
@@ -317,6 +328,8 @@ style else fill:#ef4444,color:#fff
     <img src="/public/images/method.svg" class="mx-auto">
 </div>
 
+---
+hideInToc: true
 ---
 
 # Optimization Phase 
@@ -379,6 +392,7 @@ style else fill:#ef4444,color:#fff
 ---
 layout: figure-side
 figureUrl: "/images/report.png"
+hideInToc: true
 ---
 
 # Search Phase
@@ -405,6 +419,8 @@ figureUrl: "/images/report.png"
 </div>
 
 ---
+hideInToc: true
+---
 
 # Results
 
@@ -420,8 +436,7 @@ figureUrl: "/images/report.png"
 
 ---
 
-# Summary 
-
+# Conclusions
 
 - A new methodology introduced 
     - Based on the comparison with a ground-truth profile 
