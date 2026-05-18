@@ -48,10 +48,11 @@ figureUrl: "/images/dev.svg"
 - What is a compiler?  
   - Translates high-level code into machine/executable code  
   - Bridges human code and CPU instructions  
-- Optimizations  
-  - Improves speed and memory usage  
-  - Removes inefficiencies (e.g., dead code, inlining, simplifications)  
-
+- Intermediate Representation (IR)
+    - Internal code representation
+    - Designed to be conducive to further processing 
+    - Independent of any source or target language
+    
 </v-clicks>
 
 ---
@@ -63,14 +64,13 @@ figureUrl: "/images/compiler_structure.svg"
 
 <v-clicks>
 
-- Compiler Structure 
+- Compiler Structure
     - Front-end -> From source code to IR
     - Middle-end -> Optimizes IR
     - Back-end -> Generates target code
-- Intermediate Representation (IR)
-    - Manipulated by the middle end
-    - Designed to simplify optimizations
-    - Multiple types exists
+- Optimizations
+  - Improves speed and memory usage
+  - Removes inefficiencies (e.g., dead code, inlining, simplifications)
 
 </v-clicks>
 
@@ -164,11 +164,37 @@ B -->|10| D
 ---
 
 # Profile Inaccuracy Sources
+
 - Profiles needs to accurately reflect actual runtime control flow
+
+<v-clicks depth=2>
+
 - Profile inaccuracies can stem from various sources
     - Sampling techniques needs to be rectified 
     - Stale profile collected on older version of a program 
     - Profile propagation throughout the pipeline needs to be accurate
+
+</v-clicks>
+
+
+<div v-show="$clicks < 2">
+    <img src="/public/images/inaccuracies/inaccuracies1.svg" width=80%>
+</div>
+
+<div v-show="$clicks === 2">
+    <img src="/public/images/inaccuracies/inaccuracies2.svg" width=80%>
+</div>
+<div v-show="$clicks === 3">
+    <img src="/public/images/inaccuracies/inaccuracies3.svg" width=80%>
+</div>
+<div v-show="$clicks === 4">
+    <img src="/public/images/inaccuracies/inaccuracies4.svg" width=80%>
+</div>
+
+--- 
+
+# Proposed Solutions
+
 - Previous works tackled this three main inaccuracies sources
     - Rectification problem: Rectification algorithm following flow conservation rules [^profi]
     - Staleness problem: Structural matching and inference algorithm [^stale]
