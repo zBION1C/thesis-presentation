@@ -31,8 +31,10 @@ Dr. Cristian Assaiante
 ---
 hideInToc: true
 ---
+
 # Table of Contents
-<Toc maxDepth=1 />
+
+<Toc maxDepth=1 columns=2 />
 
 ---
 layout: figure-side
@@ -126,66 +128,38 @@ B -->|10| D
 </v-clicks>
 
 ---
-layout: image
-image: "/images/pgo/pgo1.svg"
-backgroundSize: 80%
-transition: fade
----
 
-## <span class="text-black">PGO Workflow</span>
+# PGO Workflow
 
----
-layout: image
-image: "/images/pgo/pgo2.svg"
-backgroundSize: 80%
-transition: fade
----
+<div style="display:flex; justify-content:center; align-items:center; height:100%">
 
-## <span class="text-black">PGO Workflow</span>
+<v-clicks>
 
----
-layout: image
-image: "/images/pgo/pgo3.svg"
-backgroundSize: 80%
-transition: fade
----
+<div v-show="$clicks === 1" >
+    <img src="/public/images/pgo/pgo1.svg">
+</div>
+<div v-show="$clicks === 2">
+    <img src="/public/images/pgo/pgo2.svg">
+</div>
+<div v-show="$clicks === 3">
+    <img src="/public/images/pgo/pgo3.svg">
+</div>
+<div v-show="$clicks === 4">
+    <img src="/public/images/pgo/pgo4.svg">
+</div>
+<div v-show="$clicks === 5">
+    <img src="/public/images/pgo/pgo5.svg">
+</div>
+<div v-show="$clicks === 6">
+    <img src="/public/images/pgo/pgo6.svg">
+</div>
+<div v-show="$clicks === 7">
+    <img src="/public/images/pgo/pgo7.svg">
+</div>
 
-## <span class="text-black">PGO Workflow</span>
+</v-clicks>
 
----
-layout: image
-image: "/images/pgo/pgo4.svg"
-backgroundSize: 80%
-transition: fade
----
-
-## <span class="text-black">PGO Workflow</span>
-
----
-layout: image
-image: "/images/pgo/pgo5.svg"
-backgroundSize: 80%
-transition: fade
----
-
-## <span class="text-black">PGO Workflow</span>
-
----
-layout: image
-image: "/images/pgo/pgo6.svg"
-backgroundSize: 80%
-transition: fade
----
-
-## <span class="text-black">PGO Workflow</span>
-
----
-layout: image
-image: "/images/pgo/pgo7.svg"
-backgroundSize: 80%
----
-
-## <span class="text-black">PGO Workflow</span>
+</div>
 
 ---
 
@@ -316,136 +290,69 @@ style else fill:#ef4444,color:#fff
 <div align="flex flex-col items-center"> 
     <img src="/public/images/method.svg" class="mx-auto">
 </div>
----
-layout: image
-image: "/images/opt/opt1.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
 
 ---
-layout: image
-image: "/images/opt/opt2.svg"
-backgroundSize: 90%
-transition: fade
----
 
-## <span class="text-black">Optimization Phase</span>
+# Optimization Phase 
 
----
-layout: image
-image: "/images/opt/opt3.svg"
-backgroundSize: 90%
-transition: fade
----
 
-## <span class="text-black">Optimization Phase</span>
+<div style="display:flex; justify-content:center; align-items:center; height:90%">
 
----
-layout: image
-image: "/images/opt/opt5.svg"
-backgroundSize: 90%
-transition: fade
----
+<v-clicks>
 
-## <span class="text-black">Optimization Phase</span>
+<div v-show="$clicks === 1">
+    <img src="/public/images/opt/opt1.svg">
+</div>
+<div v-show="$clicks === 2">
+    <img src="/public/images/opt/opt2.svg">
+</div>
+<div v-show="$clicks === 3">
+    <img src="/public/images/opt/opt3.svg">
+</div>
+<div v-show="$clicks === 4">
+    <img src="/public/images/opt/opt4.svg">
+</div>
+<div v-show="$clicks === 5">
+    <img src="/public/images/opt/opt5.svg">
+</div>
+<div v-show="$clicks === 6">
+    <img src="/public/images/opt/opt6.svg">
+</div>
+<div v-show="$clicks === 7">
+    <img src="/public/images/opt/opt7.svg">
+</div>
+<div v-show="$clicks === 8">
+    <img src="/public/images/opt/opt8.svg">
+</div>
+<div v-show="$clicks === 9">
+    <img src="/public/images/opt/opt9.svg">
+</div>
+<div v-show="$clicks === 10">
+    <img src="/public/images/opt/opt10.svg">
+</div>
+<div v-show="$clicks === 11">
+    <img src="/public/images/opt/opt11.svg">
+</div>
+<div v-show="$clicks === 12">
+    <img src="/public/images/opt/opt12.svg">
+</div>
+<div v-show="$clicks === 13">
+    <img src="/public/images/opt/opt13.svg">
+</div>
+<div v-show="$clicks === 14">
+    <img src="/public/images/opt/opt14.svg">
+</div>
+<div v-show="$clicks === 15">
+    <img src="/public/images/opt/opt15.svg">
+</div>
 
----
-layout: image
-image: "/images/opt/opt6.svg"
-backgroundSize: 90%
-transition: fade
----
+</v-clicks>
 
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt7.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt8.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt9.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt10.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt11.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt12.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt13.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt14.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
-
----
-layout: image
-image: "/images/opt/opt15.svg"
-backgroundSize: 90%
-transition: fade
----
-
-## <span class="text-black">Optimization Phase</span>
+</div>
 
 ---
 layout: figure-side
 figureUrl: "/images/report.png"
-hideInToc: true
 ---
 
 # Search Phase
@@ -455,6 +362,7 @@ hideInToc: true
     - This helps to pinpoint the cause of a profile propagation error
     - Based on a binary search on the optimization pipeline
 - The output is a JSON report containing all the mismatches found with fault information
+
 ---
 
 # Evaluation 
