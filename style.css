@@ -1,5 +1,6 @@
 .footnotes {
-  margin-top: 40px;
+  position: fixed;
+  bottom: 50px;
   font-size: 0.55em;
 }
 
