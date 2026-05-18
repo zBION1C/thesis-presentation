@@ -48,32 +48,52 @@ figureUrl: "/images/dev.svg"
 - What is a compiler?  
   - Translates high-level code into machine/executable code  
   - Bridges human code and CPU instructions  
-- Intermediate Representation (IR)
-    - Internal code representation
-    - Designed to be conducive to further processing 
-    - Independent of any source or target language
-    
+ - Optimizations
+  - Improves speed and memory usage
+  - Removes inefficiencies (e.g., dead code, inlining, simplifications)
+   
 </v-clicks>
 
 ---
-layout: figure-side
-figureUrl: "/images/compiler_structure.svg"
 hideInToc: true
 ---
 
 # Compilers Architecture
 
-<v-clicks>
+<v-clicks depth=2>
 
 - Compiler Structure
     - Front-end -> From source code to IR
     - Middle-end -> Optimizes IR
     - Back-end -> Generates target code
-- Optimizations
-  - Improves speed and memory usage
-  - Removes inefficiencies (e.g., dead code, inlining, simplifications)
 
 </v-clicks>
+
+<v-clicks>
+
+- Intermediate Representation (IR)
+    - Internal code representation
+    - Designed to be conducive to further processing 
+    - Independent of any source or target language
+
+</v-clicks>
+
+<div class="absolute right-0px top-40px">
+
+<div v-show="$clicks === 2" >
+    <img src="/public/images/architecture/frontend.svg" width=65%>
+</div>
+<div v-show="$clicks === 3" >
+    <img src="/public/images/architecture/middleend.svg" width=65%>
+</div>
+<div v-show="$clicks === 4" >
+    <img src="/public/images/architecture/backend.svg" width=65%>
+</div>
+<div v-show="$clicks > 4" >
+    <img src="/public/images/architecture/backend.svg" width=65%>
+</div>
+
+</div>
 
 ---
 hideInToc: true
@@ -183,6 +203,7 @@ hideInToc: true
 
 </v-clicks>
 
+<div align=center> 
 
 <div v-show="$clicks < 2">
     <img src="/public/images/inaccuracies/inaccuracies1.svg" width=80%>
@@ -196,6 +217,8 @@ hideInToc: true
 </div>
 <div v-show="$clicks === 4">
     <img src="/public/images/inaccuracies/inaccuracies4.svg" width=80%>
+</div>
+
 </div>
 
 --- 
@@ -424,7 +447,7 @@ hideInToc: true
 
 # Results
 
-- Eleven total issues were found and reported to the LLVM community [^*]
+- Eleven total issues were found and reported to the LLVM community *
     - One was an hard to spot integer overflow!
 
 <br>
@@ -432,7 +455,11 @@ hideInToc: true
     <img src="/public/images/table.png" width=40% />
 </div>
 
-[^*]: 2 more reported a couple of days ago
+<br>
+<br>
+<br>
+
+\* 2 more reported a couple of days ago
 
 ---
 
