@@ -75,6 +75,7 @@ hideInToc: true
     - Internal code representation
     - Designed to be conducive to further processing 
     - Independent of any source or target language
+    - Supports metadata for optimization, debugging etc...
 
 </v-clicks>
 
@@ -94,6 +95,10 @@ hideInToc: true
 </div>
 
 </div>
+
+<!--
+- Metadata are attached to instructions 
+-->
 
 ---
 hideInToc: true
@@ -115,8 +120,8 @@ hideInToc: true
 </div>
 
 <!-- 
-- Static analysis relies on conservative heuristics 
-- Pipelines result of a lot of experimentations by developers
+- Pipelines are a result of a lot of experimentations performed by compiler developers
+- Static analysis relies on conservative heuristics but also precise control-flow or data-flow analysis
 -->
 
 ---
@@ -149,6 +154,10 @@ B -->|10| D
     - Tracing -> Profile aggregated from the program trace 
 
 </v-clicks>
+
+<!--
+- With control flow information we refer to information that tell us what region of the program were executed and how frequently
+-->
 
 ---
 hideInToc: true
@@ -238,7 +247,7 @@ hideInToc: true
 
 # Profile Information Propagation 
 
-- The starting profile is propagated throughout the entire pipeline
+- The starting profile is propagated throughout the entire PGO pipeline
     - Each optimization is responsible for the update of the profile information
     - Additional logic to handle profile metadata in passes source code
 
@@ -283,7 +292,6 @@ style else fill:#ef4444,color:#fff
 
 </div>
 
-
 <div v-click style="display:flex; flex-direction:column; justify-content:space-evenly; align-items:center;" >
 
 ```c{all}
@@ -325,13 +333,11 @@ hideInToc: true
     - Timing side-channel amplification due to unexpected control-flow behavior[^side]
     - Breaking assumptions used in constant-time or hardened code
 
- 
 </v-clicks>
 
 <div v-click style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;">
  Optimization correctness is not only a performance concern, but also a security dependency!
 </div>
-
 
 [^side]: Thomas Allan, Billy Bob Brumley, Katrina Falkner, Joop van de Pol, and Yuval Yarom. “Amplifying side channels through performance degradation”
 
@@ -343,7 +349,6 @@ hideInToc: true
 - Organized in two main phases
     - Optimization phase: Spots profile mismatches introduce by a full pipeline
     - Search phase: Attributes faulty pass for each found mismatch 
-
 
 <br>
 <br>
@@ -358,7 +363,6 @@ hideInToc: true
 ---
 
 # Optimization Phase 
-
 
 <div style="display:flex; justify-content:center; align-items:center; height:90%">
 
@@ -431,7 +435,6 @@ hideInToc: true
 ---
 
 # Evaluation 
-
 
 - Eight major testing campaigns were launched varying on
     - Optimization pipelines tested
