@@ -43,12 +43,12 @@ figureUrl: "/images/dev.svg"
 
 # Compilers 
 
-<v-clicks every="1">
+<v-clicks>
 
 - What is a compiler?  
   - Translates high-level code into machine/executable code  
   - Bridges human code and CPU instructions  
- - Optimizations
+- Optimizations
   - Improves speed and memory usage
   - Removes inefficiencies (e.g., dead code, inlining, simplifications)
    
@@ -324,12 +324,14 @@ hideInToc: true
 - Security-relevant consequences
     - Timing side-channel amplification due to unexpected control-flow behavior[^side]
     - Breaking assumptions used in constant-time or hardened code
+
  
-<div style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;">
+</v-clicks>
+
+<div v-click style="display:flex; background:#f5775b; margin-top:25px; padding:10px; border-radius:4px; justify-content:center;">
  Optimization correctness is not only a performance concern, but also a security dependency!
 </div>
 
-</v-clicks>
 
 [^side]: Thomas Allan, Billy Bob Brumley, Katrina Falkner, Joop van de Pol, and Yuval Yarom. “Amplifying side channels through performance degradation”
 
@@ -430,6 +432,7 @@ hideInToc: true
 
 # Evaluation 
 
+
 - Eight major testing campaigns were launched varying on
     - Optimization pipelines tested
     - Program generations parameters
@@ -437,7 +440,7 @@ hideInToc: true
 - Evaluation performed on the LLVM compiler infrastructure 
     - Open source and inclined to research
 
-<div align=center v-click>
+<div align=center>
     <img src="/public/images/graph.svg" width=40% />
 </div>
 
@@ -451,7 +454,7 @@ hideInToc: true
     - One was an hard to spot integer overflow!
 
 <br>
-<div align=center v-click>
+<div align=center>
     <img src="/public/images/table.png" width=40% />
 </div>
 
