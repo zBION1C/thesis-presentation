@@ -375,42 +375,24 @@ hideInToc: true
     <img src="/public/images/opt/opt2.svg">
 </div>
 <div v-show="$clicks === 3">
-    <img src="/public/images/opt/opt3.svg">
-</div>
-<div v-show="$clicks === 4">
-    <img src="/public/images/opt/opt4.svg">
-</div>
-<div v-show="$clicks === 5">
     <img src="/public/images/opt/opt5.svg">
 </div>
-<div v-show="$clicks === 6">
-    <img src="/public/images/opt/opt6.svg">
-</div>
-<div v-show="$clicks === 7">
+<div v-show="$clicks === 4">
     <img src="/public/images/opt/opt7.svg">
 </div>
-<div v-show="$clicks === 8">
-    <img src="/public/images/opt/opt8.svg">
-</div>
-<div v-show="$clicks === 9">
+<div v-show="$clicks === 5">
     <img src="/public/images/opt/opt9.svg">
 </div>
-<div v-show="$clicks === 10">
-    <img src="/public/images/opt/opt10.svg">
-</div>
-<div v-show="$clicks === 11">
+<div v-show="$clicks === 6">
     <img src="/public/images/opt/opt11.svg">
 </div>
-<div v-show="$clicks === 12">
-    <img src="/public/images/opt/opt12.svg">
-</div>
-<div v-show="$clicks === 13">
+<div v-show="$clicks === 7">
     <img src="/public/images/opt/opt13.svg">
 </div>
-<div v-show="$clicks === 14">
+<div v-show="$clicks === 8">
     <img src="/public/images/opt/opt14.svg">
 </div>
-<div v-show="$clicks === 15">
+<div v-show="$clicks === 9">
     <img src="/public/images/opt/opt15.svg">
 </div>
 
