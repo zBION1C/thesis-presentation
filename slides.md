@@ -171,6 +171,31 @@ style F fill:#4f46e5,color:#fff
 hideInToc: true
 ---
 
+# Profile Information
+
+- Instrumentation can happen at different stages
+    - Source-level instrumentation 
+    - IR-level instrumentation
+- Profile Information is persisted in a binary format
+    - The content depends on the technique used to capture profile
+    - Multiple runs generate multiple files 
+    - Hierarchical structure that keeps track how many times instrumented blocks were hit
+```
+Counters:
+  main:
+    Instrumentation Points: 4
+    Counts: [100, 0, 0, 100]
+Instrumentation level: IR 
+Functions shown: 1
+Total functions: 1
+Total number of instrumentation points: 4
+Total count: 200
+```
+
+---
+hideInToc: true
+---
+
 # PGO Workflow
 
 <div style="display:flex; justify-content:center; align-items:center; height:100%">
