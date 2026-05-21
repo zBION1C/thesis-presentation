@@ -128,14 +128,22 @@ hideInToc: true
 
 # Profile Guided Optimization
 
-<div class="absolute right-100px bottom-90px">
+<div v-show="$clicks >= 2" class="absolute right-0px bottom-90px">
 
 ```mermaid {scale: 0.8}
 flowchart TD
-A[A:30] -->|10| B[B:10]
-A -->|20| C[C:20]
-C -->|20| D[D:30]
-B -->|10| D
+A[A:50] -->|0| B[B:0]
+A -->|50| C[C:50]
+C -->|25| D[D:25]
+C -->|25| E[E:25]
+B -->|0| F[F:0]
+
+style A fill:#ef4f44,color:#fff
+style B fill:#4f46e5,color:#fff
+style C fill:#ef4f44,color:#fff
+style D fill:#ef4f44,color:#fff
+style E fill:#ef4f44,color:#fff
+style F fill:#4f46e5,color:#fff
 ```
 
 </div>
@@ -287,7 +295,7 @@ entry[if x > 0] -->|"T:80%"| else["handle_positive(x)"]
 entry -->|"F:20%"| then["handle_negative(x)"]
 
 style then fill:#4f46e5,color:#fff
-style else fill:#ef4444,color:#fff
+style else fill:#ef4f44,color:#fff
 ```
 
 </div>
@@ -309,7 +317,7 @@ entry[if x <= 0] -->|"T:80%"| else["handle_negative(x)"]
 entry -->|"F:20%"| then["handle_positive(x)"]
 
 style then fill:#4f46e5,color:#fff
-style else fill:#ef4444,color:#fff
+style else fill:#ef4f44,color:#fff
 ```
 
 </div>
