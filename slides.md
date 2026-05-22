@@ -157,7 +157,7 @@ style F fill:#4f46e5,color:#fff
     - Weights on control flow edges
     - Counts on basic blocks
 - Profiles can be captured via:
-    - Instrumentation -> Additional logic inside the program
+    - <span v-mark="{at:3, color: 'red', type: 'underline'}">Instrumentation</span> -> Additional logic inside the program
     - Sampling -> CPU counters + Perf
     - Tracing -> Profile aggregated from the program trace 
 
@@ -173,13 +173,16 @@ hideInToc: true
 
 # Profile Information
 
+<v-clicks every="1">
+
 - Instrumentation can happen at different stages
     - Source-level instrumentation 
-    - IR-level instrumentation
+    - <span v-mark="{at:0, color: 'red', type: 'underline'}">IR-level instrumentation</span>
 - Profile Information is persisted in a binary format
     - The content depends on the technique used to capture profile
     - Multiple runs generate multiple files 
     - Hierarchical structure that keeps track how many times instrumented blocks were hit
+
 ```
 Counters:
   main:
@@ -191,6 +194,8 @@ Total functions: 1
 Total number of instrumentation points: 4
 Total count: 200
 ```
+
+</v-clicks>
 
 ---
 hideInToc: true
